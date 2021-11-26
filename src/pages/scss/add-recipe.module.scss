@@ -4,3 +4,9 @@
     left: 50vw;
     transform: translateX(-50%);
 }
+
+.input_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

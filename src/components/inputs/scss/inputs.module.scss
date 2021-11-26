@@ -1,13 +1,19 @@
 .text_input {
-    border: 2px solid #eee;
-    background-color: #eee;
+    border: 2px solid #999;
+    background-color: #fff;
     box-sizing: border-box;
     border-radius: 4px;
-    height: 48px;
     padding: 10px;
     margin: 10px;
+    display: flex;
+    flex-grow: 1;
 
-    &:focus, &:focus-visible {
+    min-height: 48px;
+    max-height: 800px;
+    height: auto;
+
+    &:focus,
+    &:focus-visible {
         border: 2px solid #37c43c;
         outline: none;
         background-color: #fff;
