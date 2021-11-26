@@ -1,11 +1,11 @@
 import React from 'react'
 import { page_head } from './scss/head.module.scss'
 
-const Head = () => {
+const Head = (props) => {
     return (
         <div className={page_head}>
-            <title>My Recipe Book</title>
-            <h1>My Recipe Book</h1>
+            <title>{props.title}</title>
+            <h1>{props.title}</h1>
         </div>
     )
 }
