@@ -1,13 +1,15 @@
 import React from 'react'
+import Head from './head'
 import "normalize.css"
-import "../pages/scss/global.scss"
+import "./scss/global.scss"
 
-const Layout = (props) => {
-    return (
-        <div>
+const Layout = (props) => (
+    <div>
+        <Head title={props.title} />
+        <div className='container'>
             {props.children}
         </div>
-    )
-}
+    </div>
+)
 
 export default Layout
