@@ -7,8 +7,9 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { add_own_recipe_button } from './scss/add-recipe.module.scss'
 
 const AddRecipe = () => {
+
     return (
-        <Layout title="Add Recipe">
+        <Layout title="Add Recipe" show_back_btn={true}>
             <h2>Import recipe from URL</h2>
             <InputText placeholder="Enter URL" />
             <ButtonText>Import</ButtonText>
