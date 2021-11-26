@@ -1,5 +1,5 @@
 {
-  "name": "my-recipe-book",
+  "name": "my_recipe_book",
   "version": "1.0.0",
   "private": true,
   "description": "My Recipe Book",
@@ -8,7 +8,7 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
