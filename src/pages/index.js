@@ -1,13 +1,15 @@
 import * as React from "react"
+import AddRecipeBtn from "../components/addrecipebtn"
+import Head from "../components/head"
+import NoRecipes from "../components/norecipes"
+import "../scss/global.scss"
 
 const IndexPage = () => {
   return (
     <main>
-      <title>Home Page</title>
-      <h1>Home Page</h1>
-      <p>
-        Home Page
-      </p>
+      <Head />
+      <NoRecipes />
+      <AddRecipeBtn />
     </main>
   )
 }
