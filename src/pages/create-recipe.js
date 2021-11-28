@@ -3,19 +3,31 @@ import InputText from '../components/inputs/input-text'
 import Layout from '../components/layout'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { Button } from '../components/button/button'
+import { style_full_width } from "./scss/create-recipe.module.scss";
 
-const CreateRecipe = () => (
-    <Layout title="Create Recipe" show_back_btn={true} save_btn_action={()=>console.log("Save clicked")}>
-        <InputText placeholder="Title" />
-        <Button primaryCTA={true} >Add A Picture</Button>
-        <InputText type="textarea" placeholder="Summary" />
+const CreateRecipe = () => {
+    
+    const handleSave = () => {
+        console.log("Save Clicked")
+    }
 
-        <InputText type="textarea" placeholder="Ingredients" />
+    const handleAddPicture = () => {
+        console.log("Add A Picture Clicked")
+    }
+    
+    return (
+        <Layout title="Create Recipe" show_back_btn={true} save_btn_action={handleSave}>
+            <InputText placeholder="Title" className={style_full_width} />
+            <Button primaryCTA={true} onClick={handleAddPicture}>Add A Picture</Button>
+            <InputText type="textarea" placeholder="Summary" className={style_full_width} />
 
-        <InputText type="textarea" placeholder="Method" />
+            <InputText type="textarea" placeholder="Ingredients" className={style_full_width} />
 
-        <Button primaryCTA={true} icon={faCheck}>Save</Button>
-    </Layout>
-)
+            <InputText type="textarea" placeholder="Method" className={style_full_width} />
+
+            <Button primaryCTA={true} icon={faCheck} onClick={handleSave}>Save</Button>
+        </Layout>
+    )
+}
 
 export default CreateRecipe

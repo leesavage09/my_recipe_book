@@ -7,12 +7,16 @@ import { Button } from '../components/button/button'
 
 const AddRecipe = () => {
 
+    const handleImport = () => {
+        console.log("Import Clicked")
+    }
+
     return (
         <Layout title="Add Recipe" show_back_btn={true}>
             <h2>Import recipe from URL</h2>
             <div className={input_container}>
                 <InputText placeholder="Enter URL" />
-                <Button primaryCTA={true}>Import</Button>
+                <Button primaryCTA={true} onClick={handleImport}>Import</Button>
             </div>
             <p>Enter a website URL for a recipe you would like to import</p>
             <Button

@@ -1,16 +1,16 @@
 import React from 'react'
 import { text_input } from './scss/inputs.module.scss'
 
-const InputText = (props) => {
+const InputText = ({type, placeholder, className}) => {
 
-    if (props.type === "textarea") {
+    if (type === "textarea") {
         return (
-            <textarea rows="10" placeholder={props.placeholder} className={text_input} />
+            <textarea rows="10" placeholder={placeholder} className={`${text_input} ${className}`} />
         )
     }
     else {
         return (
-            <input placeholder={props.placeholder} className={text_input} />
+            <input placeholder={placeholder} className={`${text_input} ${className}`} />
         )
     }
 }

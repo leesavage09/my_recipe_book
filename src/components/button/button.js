@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fab_button, cta_button, fa_icon, fa_icon_with_text, style_primary, style_secondary } from './scss/button.module.scss'
 import { navigate } from "gatsby"
 
-export const Button = ({ primaryCTA, icon, children, to, className, clickAction }) => {
+export const Button = ({ primaryCTA, icon, children, to, className, onClick }) => {
 
     const handelOnClick = () => {
         if (to) {
             navigate(to)
         }
-        if (clickAction) {
-            clickAction()
+        if (onClick) {
+            onClick()
         }
     }
 
