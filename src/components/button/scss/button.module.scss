@@ -1,0 +1,41 @@
+.fab_button {
+    width: 56px;
+    height: 56px;
+    box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+    filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.3));
+    border-radius: 16px;
+}
+
+.cta_button {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+
+    height: 48px;
+    border-radius: 100px;
+    padding: 0 20px 0 20px;
+}
+
+//icons
+.fa_icon {
+    font-size: 24px;
+}
+
+.fa_icon_with_text {
+    font-size: 14px;
+    padding-right: 5px;
+
+}
+
+//colour styles
+.style_primary {
+    background: #37c43c;
+    color: #fff;
+    border: 1px solid #37C43C;
+} 
+
+.style_secondary {
+    background: #fff;
+    color: #37c43c;
+    border: 1px solid #37C43C;
+}

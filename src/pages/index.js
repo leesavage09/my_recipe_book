@@ -1,14 +1,13 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import NoRecipes from "../components/norecipes"
-import ButtonIcon from "../components/buttons/button-icon"
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import { Link } from "gatsby"
+import { Button } from "../components/button/button"
 
 const IndexPage = () => (
   <Layout title="My Recipe Book">
     <NoRecipes />
-    <Link to="/add-recipe"><ButtonIcon icon={faPlus} /></Link>
+    <Button to="/add-recipe" primaryCTA={true} icon={faPlus}/>
   </Layout>
 )
 

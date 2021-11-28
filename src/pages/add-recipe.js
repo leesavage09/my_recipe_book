@@ -1,10 +1,9 @@
 import React from 'react'
-import ButtonText from '../components/buttons/button-text'
-import ButtonTextIcon from '../components/buttons/button-text-icon'
 import InputText from '../components/inputs/input-text'
 import Layout from '../components/layout'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { add_own_recipe_button, input_container } from './scss/add-recipe.module.scss'
+import { Button } from '../components/button/button'
 
 const AddRecipe = () => {
 
@@ -13,16 +12,16 @@ const AddRecipe = () => {
             <h2>Import recipe from URL</h2>
             <div className={input_container}>
                 <InputText placeholder="Enter URL" />
-                <ButtonText>Import</ButtonText>
+                <Button primaryCTA={true}>Import</Button>
             </div>
             <p>Enter a website URL for a recipe you would like to import</p>
-            <ButtonTextIcon
+            <Button
                 to="/create-recipe"
                 className={add_own_recipe_button}
                 icon={faPlus}
             >
                 Add Own Recipe
-            </ButtonTextIcon>
+            </Button>
         </Layout>
     )
 }
