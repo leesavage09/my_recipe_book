@@ -1,11 +1,11 @@
 import React from 'react'
 import { text_input } from './scss/input.module.scss'
 
-const Input = ({ type, placeholder, className, onChange, value }) => {
+const Input = ({ rows, type, placeholder, className, onChange, value }) => {
 
     if (type === "textarea") {
         return (
-            <textarea rows="10" placeholder={placeholder} className={`${text_input} ${className}`} onChange={onChange} value={value} />
+            <textarea rows={rows} placeholder={placeholder} className={`${text_input} ${className}`} onChange={onChange} value={value} />
         )
     }
     else {

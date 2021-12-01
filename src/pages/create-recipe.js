@@ -95,15 +95,15 @@ const CreateRecipe = (props) => {
                     value={name} onChange={(e) => { setName(e.target.value) }}
                 />
                 {imageElement}
-                <Input type="textarea" placeholder="Summary" className={style_full_width}
+                <Input rows="4" type="textarea" placeholder="Summary" className={style_full_width}
                     value={summary} onChange={(e) => { setSummary(e.target.value) }}
                 />
 
-                <Input type="textarea" placeholder="Ingredients" className={style_full_width}
+                <Input rows={10} type="textarea" placeholder="Ingredients" className={style_full_width}
                     value={ingredients} onChange={(e) => { setIngredients(e.target.value) }}
                 />
 
-                <Input type="textarea" placeholder="Method" className={style_full_width}
+                <Input rows={15} type="textarea" placeholder="Method" className={style_full_width}
                     value={method} onChange={(e) => { setMethod(e.target.value) }}
                 />
 
