@@ -1,0 +1,42 @@
+.style_list {
+    width: 100%;
+    margin: 20px;
+    padding: 0;
+}
+
+.style_item {
+    list-style: none;
+    border: 1px solid #37c43c;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background-color: #f0fff1;
+    display: flex;
+    height: 80px;
+    margin-bottom: 25px;
+}
+
+.style_container {
+    flex-grow: 1;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.style_heading {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    margin: 0 0 6px 0;
+}
+
+.style_subheading {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    margin: 0;
+}
+
+.style_image {
+    margin-left: 15px;
+}

@@ -82,10 +82,11 @@ const CreateRecipe = (props) => {
 
     const handleSave = () => {
         dispatch(add_recipe({
-            Title: title,
-            Summary: summary,
-            Ingredients: ingredients,
-            Method: method
+            title: title,
+            imgURL: imageUrl,
+            summary: summary,
+            ingredients: ingredients,
+            method: method
         }))
         navigate("/")
     }
