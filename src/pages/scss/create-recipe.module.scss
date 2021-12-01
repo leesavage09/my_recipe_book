@@ -1,5 +1,7 @@
 .style_full_width {
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .style_image {

@@ -6,14 +6,17 @@ import { Button } from '../components/button/button'
 import { style_full_width, style_image, style_loading } from "./scss/create-recipe.module.scss";
 import qs from 'qs'
 import { navigate } from 'gatsby-link'
+import { useDispatch } from 'react-redux'
+import { add_recipe } from '../slice/recipesSlice'
 
 const CreateRecipe = (props) => {
-    const [name, setName] = useState("")
+    const [title, setTitle] = useState("")
     const [summary, setSummary] = useState("")
     const [ingredients, setIngredients] = useState("")
     const [method, setMethod] = useState("")
     const [imageUrl, setImageUrl] = useState("")
     const [loading, setLoading] = useState(true)
+    const dispatch = useDispatch()
 
     const getRecipe = async (url) => {
         if (!url) {
@@ -63,7 +66,7 @@ const CreateRecipe = (props) => {
             const recipe = await getRecipe(url)
             if (recipe) {
                 const { name, time, servings, ingredients, instructions, image } = recipe
-                setName(name)
+                setTitle(name)
                 setSummary("Preparation Time: " + time.prep + "\r\nCooking Time: " + time.cook + "\r\n" + servings)
                 setIngredients(ingredients.join('\r\n'))
                 setMethod(instructions.join('\r\n\r\n'))
@@ -78,10 +81,16 @@ const CreateRecipe = (props) => {
     }, []);
 
     const handleSave = () => {
-        console.log("Save Clicked")
+        dispatch(add_recipe({
+            Title: title,
+            Summary: summary,
+            Ingredients: ingredients,
+            Method: method
+        }))
+        navigate("/")
     }
 
-    const imageElement = imageUrl ? <img className={style_image} src={imageUrl} alt={name} /> : null
+    const imageElement = imageUrl ? <img className={style_image} src={imageUrl} alt={title} /> : null
 
     if (loading) {
         return (
@@ -91,21 +100,31 @@ const CreateRecipe = (props) => {
     else {
         return (
             <Layout title="Create Recipe" show_back_btn={true} save_btn_action={handleSave}>
-                <Input placeholder="Title" className={style_full_width}
-                    value={name} onChange={(e) => { setName(e.target.value) }}
-                />
+                <label className={style_full_width}>Title
+                    <Input placeholder="Title"
+                        value={title} onChange={(e) => { setTitle(e.target.value) }}
+                    />
+                </label>
+
                 {imageElement}
-                <Input rows="4" type="textarea" placeholder="Summary" className={style_full_width}
-                    value={summary} onChange={(e) => { setSummary(e.target.value) }}
-                />
 
-                <Input rows={10} type="textarea" placeholder="Ingredients" className={style_full_width}
-                    value={ingredients} onChange={(e) => { setIngredients(e.target.value) }}
-                />
+                <label className={style_full_width}>Summary
+                    <Input rows="4" type="textarea" placeholder="Summary" className={style_full_width}
+                        value={summary} onChange={(e) => { setSummary(e.target.value) }}
+                    />
+                </label>
 
-                <Input rows={15} type="textarea" placeholder="Method" className={style_full_width}
-                    value={method} onChange={(e) => { setMethod(e.target.value) }}
-                />
+                <label className={style_full_width}>Ingredients
+                    <Input rows={10} type="textarea" placeholder="Ingredients" className={style_full_width}
+                        value={ingredients} onChange={(e) => { setIngredients(e.target.value) }}
+                    />
+                </label>
+
+                <label className={style_full_width}>Method
+                    <Input rows={15} type="textarea" placeholder="Method" className={style_full_width}
+                        value={method} onChange={(e) => { setMethod(e.target.value) }}
+                    />
+                </label>
 
                 <Button primaryCTA={true} icon={faCheck} onClick={handleSave}>Save</Button>
             </Layout>
