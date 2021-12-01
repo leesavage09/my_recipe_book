@@ -2,11 +2,25 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = [
     {
-        title: 'Blueberry baked oats',
-        imgURL: 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/blueberry-nut-oat-bake-4a1dd90.jpg',
-        summary: 'Preparation Time: 5 mins\r\nCooking Time: 35 mins\r\nServes 6',
-        ingredients: '500ml almond milk\r\n200g jumbo porridge oats\r\n2 tbsp almond butter\r\n1 tsp baking powder\r\n1 egg, beaten\r\n1 small ripe banana, mashed\r\n½ tsp almond extract or 1 tsp vanilla extract (optional)\r\n450g blueberries, plus extra to serve\r\n30g whole, skin-on almonds, roughly chopped\r\nmilk or fat-free yogurt and honey, to serve (optional)',
-        method: 'Heat the oven to 200C/180C fan/gas 6. Mix all of the ingredients together in a large bowl.\r\n\r\nTip the mixture into a 2-litre ovenproof dish, then bake for 30-35 mins until piping hot in the middle. Serve warm with a little milk or yogurt, honey and extra blueberries, if you like.'
+        title: 'Coconut & squash dhansak',
+        imgURL: 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/coconut-squash-dhansak-a3a9133.jpg',
+        summary: 'Preparation Time: 5 mins\r\nCooking Time: 15 mins\r\nServes 4',
+        ingredients: [
+          '1 tbsp vegetable oil',
+          '500g butternut squash (about 1 small squash), peeled and chopped into bite-sized chunks (or buy a pack of ready-prepared to save time), see tip, below left',
+          '100g frozen chopped onions',
+          '4 heaped tbsp mild curry paste (we used korma)',
+          '400g can chopped tomatoes',
+          '400g can light coconut milk',
+          'mini naan bread, to serve',
+          '400g can  lentils, drained',
+          '200g bag baby spinach',
+          '150ml coconut yogurt (we used Rachel’s Organic), plus extra to serve'
+        ],
+        method: [
+          'Heat the oil in a large pan. Put the squash in a bowl with a splash of water. Cover with cling film and microwave on High for 10 mins or until tender. Meanwhile, add the onions to the hot oil and cook for a few mins until soft. Add the curry paste, tomatoes and coconut milk, and simmer for 10 mins until thickened to a rich sauce.',
+          'Warm the naan breads in a low oven or in the toaster. Drain any liquid from the squash, then add to the sauce with the lentils, spinach and some seasoning. Simmer for a further 2-3 mins to wilt the spinach, then stir in the coconut yogurt. Serve with the warm naan and a dollop of extra yogurt.'
+        ]
       }
 ]
 

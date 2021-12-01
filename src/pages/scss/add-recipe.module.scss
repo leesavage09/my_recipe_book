@@ -1,3 +1,7 @@
+.style_container {
+    padding: 0 20px 0 20px;
+}
+
 .add_own_recipe_button {
     position: absolute;
     bottom: 20px;
@@ -9,5 +13,4 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width:100%;
 }

@@ -8,7 +8,7 @@ import RecipeList from "../components/RecipeList";
 
 const IndexPage = () => {
   const recipes = useSelector(state => state.recipes);
-  const content = recipes ? RecipeList(recipes) : NoRecipes()
+  const content = recipes.length > 0 ? RecipeList(recipes) : NoRecipes()
 
   return (
     <Layout title="My Recipe Book">

@@ -1,5 +1,10 @@
-.style_full_width {
-    width: 100%;
+.style_container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.style_flex_column {
     display: flex;
     flex-direction: column;
 }
@@ -10,7 +15,7 @@
     margin-top: 20px;
 }
 
-.style_loading{
+.style_loading {
     background-color: #f0fff1;
     position: absolute;
     top: 0px;
@@ -20,10 +25,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    p{
-        color: #FAAC5D;
+
+    p {
+        color: #faac5d;
         font-weight: bold;
         font-size: 1.5rem;
     }
+}
+
+.style_button {
+    align-items: flex-start;
+    margin: auto;
 }
