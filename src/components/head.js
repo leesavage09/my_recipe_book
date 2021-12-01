@@ -4,22 +4,24 @@ import { navigate } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faCheck } from '@fortawesome/free-solid-svg-icons'
 
-const Head = (props) => {
+const Head = ({ show_back_btn, back_btn_action, save_btn_action, title }) => {
 
-    const GoBackBtn = props.show_back_btn ? <button className={back_btn} onClick={() => navigate(-1)}>
+    const goBackAction = back_btn_action ? back_btn_action : () => navigate(-1)
+
+    const GoBackBtn = show_back_btn ? <button className={back_btn} onClick={goBackAction}>
         <FontAwesomeIcon icon={faArrowLeft} />
     </button> : null
 
 
-    const SaveBtn = props.save_btn_action ? <button className={save_btn} onClick={() => props.save_btn_action()}>
+    const SaveBtn = save_btn_action ? <button className={save_btn} onClick={() => save_btn_action()}>
         <FontAwesomeIcon icon={faCheck} />
     </button> : null
 
     return (
         <div className={page_head}>
-            <title>{props.title}</title>
+            <title>{title}</title>
             {GoBackBtn}
-            <h1>{props.title}</h1>
+            <h1>{title}</h1>
             {SaveBtn}
         </div>
     )

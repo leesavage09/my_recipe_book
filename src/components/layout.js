@@ -3,11 +3,11 @@ import Head from './head'
 import "normalize.css"
 import "./scss/global.scss"
 
-const Layout = (props) => (
+const Layout = ({ back_btn_action, title, show_back_btn, save_btn_action, children }) => (
     <div>
-        <Head title={props.title} show_back_btn={props.show_back_btn} save_btn_action={props.save_btn_action} />
+        <Head back_btn_action={back_btn_action} title={title} show_back_btn={show_back_btn} save_btn_action={save_btn_action} />
         <div className='container'>
-            {props.children}
+            {children}
         </div>
     </div>
 )
