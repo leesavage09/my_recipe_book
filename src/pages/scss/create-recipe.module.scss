@@ -7,3 +7,21 @@
     margin-bottom: 20px;
     margin-top: 20px;
 }
+
+.style_loading{
+    background-color: #f0fff1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    p{
+        color: #FAAC5D;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+}
