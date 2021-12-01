@@ -4,7 +4,8 @@ body,
 h1,
 p,
 input,
-button {
+button,
+textarea {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -23,11 +24,16 @@ h2 {
 }
 
 p,
-input {
+input, 
+textarea {
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
     text-align: center;
+}
+
+textarea{
+    text-align: left;
 }
 
 .container {
