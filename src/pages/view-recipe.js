@@ -4,6 +4,7 @@ import Img from '../components/RecipeImage'
 import { style_image, style_content, style_heading, style_subheading } from './scss/view-recipe.module.scss'
 
 const ViewRecipe = (props) => {
+    if (typeof props.location.state === `undefined`) { return null}
 
     const recipe = props.location.state.recipe
 
