@@ -24,18 +24,26 @@
 .fa_icon_with_text {
     font-size: 14px;
     padding-right: 5px;
-
 }
 
 //colour styles
 .style_primary {
     background: #37c43c;
     color: #fff;
-    border: 1px solid #37C43C;
-} 
+    border: 1px solid #37c43c;
+
+    &:disabled {
+        background: #ccc;
+        border: 1px solid #ccc;
+    }
+}
 
 .style_secondary {
     background: #fff;
     color: #37c43c;
-    border: 1px solid #37C43C;
+    border: 1px solid #37c43c;
+    &:disabled {
+        background: #ccc;
+        border: 1px solid #ccc;
+    }
 }

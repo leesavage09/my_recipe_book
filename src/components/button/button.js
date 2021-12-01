@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fab_button, cta_button, fa_icon, fa_icon_with_text, style_primary, style_secondary } from './scss/button.module.scss'
 import { navigate } from "gatsby"
 
-export const Button = ({ primaryCTA, icon, children, to, className, onClick }) => {
+export const Button = ({ primaryCTA, icon, children, to, className, onClick, disabled }) => {
 
     const handelOnClick = () => {
         if (to) {
@@ -18,7 +18,7 @@ export const Button = ({ primaryCTA, icon, children, to, className, onClick }) =
 
     if (icon && children) {
         return (
-            <button onClick={() => handelOnClick()} className={`${cta_button} ${className} ${style}`} >
+            <button disabled={disabled} onClick={() => handelOnClick()} className={`${cta_button} ${className} ${style}`} >
                 <FontAwesomeIcon className={fa_icon_with_text} icon={icon} />
                 {children}
             </button>
@@ -26,14 +26,14 @@ export const Button = ({ primaryCTA, icon, children, to, className, onClick }) =
     }
     if (icon && !children) {
         return (
-            <button onClick={() => handelOnClick()} className={`${fab_button} ${className} ${style}`} >
+            <button disabled={disabled} onClick={() => handelOnClick()} className={`${fab_button} ${className} ${style}`} >
                 <FontAwesomeIcon className={fa_icon} icon={icon} />
             </button>
         )
     }
     else {
         return (
-            <button onClick={() => handelOnClick()} className={`${cta_button} ${className} ${style}`}>
+            <button disabled={disabled} onClick={() => handelOnClick()} className={`${cta_button} ${className} ${style}`}>
                 {children}
             </button>
         )
