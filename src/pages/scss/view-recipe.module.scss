@@ -1,10 +1,10 @@
-.style_image {
+.image {
     max-width: 100%;
     height: auto;
     width: 100vw;
 }
 
-.style_content {
+.content {
     display: flex;
     flex-direction: column;
 
@@ -17,14 +17,14 @@
     padding: 10px;
 }
 
-.style_heading {
+.heading {
     font-size: 16px;
     font-weight: 500;
     text-align: left;
     margin: 0 0 6px 0;
 }
 
-.style_subheading {
+.subheading {
     font-size: 14px;
     font-weight: 400;
     text-align: left;

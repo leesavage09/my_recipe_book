@@ -3,7 +3,7 @@ import Input from '../components/inputs/input'
 import Layout from '../components/layout'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { Button } from '../components/button/button'
-import { style_container, style_flex_column, style_image, style_loading, style_button } from "./scss/create-recipe.module.scss";
+import style from "./scss/create-recipe.module.scss";
 import qs from 'qs'
 import { navigate } from 'gatsby-link'
 import { useDispatch } from 'react-redux'
@@ -43,7 +43,7 @@ const CreateRecipe = (props) => {
 
         //https://my-recipe-book-server.herokuapp.com/graphql
         //http://localhost:3001/graphql
-        const response = await fetch("https://my-recipe-book-server.herokuapp.com/graphql", {//TODO use local server in dev mode
+        const response = await fetch("http://localhost:3001/graphql", {//TODO use local server in dev mode
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -93,18 +93,18 @@ const CreateRecipe = (props) => {
         navigate("/")
     }
 
-    const imageElement = imageUrl ? <img className={style_image} src={imageUrl} alt={title} /> : null
+    const imageElement = imageUrl ? <img className={style.image} src={imageUrl} alt={title} /> : null
 
     if (loading) {
         return (
-            <div className={style_loading}><p>Loading...</p></div>
+            <div className={style.loading}><p>Loading...</p></div>
         )
     }
     else {
         return (
             <Layout title="Create Recipe" show_back_btn={true} save_btn_action={handleSave}>
-                <div className={style_container}>
-                    <label className={style_flex_column}>Title
+                <div className={style.container}>
+                    <label className={style.flex_column}>Title
                         <Input placeholder="Title"
                             value={title} onChange={(e) => { setTitle(e.target.value) }}
                         />
@@ -112,25 +112,25 @@ const CreateRecipe = (props) => {
 
                     {imageElement}
 
-                    <label className={style_flex_column}>Summary
+                    <label className={style.flex_column}>Summary
                         <Input rows="4" type="textarea" placeholder="Summary"
                             value={summary} onChange={(e) => { setSummary(e.target.value) }}
                         />
                     </label>
 
-                    <label className={style_flex_column}>Ingredients
+                    <label className={style.flex_column}>Ingredients
                         <Input rows={10} type="textarea" placeholder="Ingredients"
                             value={ingredients.join('\r\n')} onChange={(e) => { setIngredients(e.target.value.split('\n')) }}
                         />
                     </label>
 
-                    <label className={style_flex_column}>Method
+                    <label className={style.flex_column}>Method
                         <Input rows={15} type="textarea" placeholder="Method"
                             value={method.join('\r\n\r\n')} onChange={(e) => { setMethod(e.target.value.split('\n\n')) }}
                         />
                     </label>
 
-                    <Button primaryCTA={true} icon={faCheck} onClick={handleSave} className={style_button}>Save</Button>
+                    <Button primaryCTA={true} icon={faCheck} onClick={handleSave} className={style.button}>Save</Button>
                 </div>
             </Layout>
         )

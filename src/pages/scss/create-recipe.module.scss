@@ -1,21 +1,21 @@
-.style_container {
+.container {
     display: flex;
     flex-direction: column;
     padding: 20px;
 }
 
-.style_flex_column {
+.flex_column {
     display: flex;
     flex-direction: column;
 }
 
-.style_image {
+.image {
     width: 100%;
     margin-bottom: 20px;
     margin-top: 20px;
 }
 
-.style_loading {
+.loading {
     background-color: #f0fff1;
     position: absolute;
     top: 0px;
@@ -33,7 +33,7 @@
     }
 }
 
-.style_button {
+.button {
     align-items: flex-start;
     margin: auto;
 }

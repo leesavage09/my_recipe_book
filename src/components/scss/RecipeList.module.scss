@@ -1,9 +1,9 @@
-.style_list {
+.list {
     margin: 20px;
     padding: 0;
 }
 
-.style_item {
+.item {
     list-style: none;
     border: 1px solid #37c43c;
     box-sizing: border-box;
@@ -15,7 +15,7 @@
     overflow: hidden;
 }
 
-.style_container {
+.container {
     flex-grow: 1;
     padding-left: 10px;
     display: flex;
@@ -23,20 +23,20 @@
     justify-content: center;
 }
 
-.style_heading {
+.heading {
     font-size: 16px;
     font-weight: 500;
     text-align: left;
     margin: 0 0 6px 0;
 }
 
-.style_subheading {
+.subheading {
     font-size: 14px;
     font-weight: 400;
     text-align: left;
     margin: 0;
 }
 
-.style_image {
+.image {
     margin-left: 15px;
 }
