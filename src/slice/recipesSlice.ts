@@ -9,7 +9,7 @@ interface Recipe {
   url: string
 }
 
-const getLocalStorage = () => {
+const getLocalStorage = ():Array<Recipe> => {
   if (typeof window !== 'undefined') {
     const localStore = localStorage.getItem('recipes')
     return localStore ? JSON.parse(localStore) : []
@@ -18,13 +18,13 @@ const getLocalStorage = () => {
   }
 }
 
-const initialState = getLocalStorage()
+const initialState: Array<Recipe> = getLocalStorage()
 
 const RecipesSlice = createSlice({
   name: 'recipes',
   initialState,
   reducers: {
-    add_recipe: (state, action: PayloadAction<Recipe>) => {
+    add_recipe: (state: Array<Recipe>, action: PayloadAction<Recipe>) => {
       state.push(action.payload)
     }
   },
