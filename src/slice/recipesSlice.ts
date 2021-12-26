@@ -1,4 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
+interface Recipe {
+  title: string,
+  imgURL: string,
+  summary: string,
+  ingredients: Array<string>,
+  method: Array<string>,
+  url: string
+}
 
 const getLocalStorage = () => {
   if (typeof window !== 'undefined') {
@@ -15,15 +24,12 @@ const RecipesSlice = createSlice({
   name: 'recipes',
   initialState,
   reducers: {
-    add_recipe: (state, action) => {
+    add_recipe: (state, action: PayloadAction<Recipe>) => {
       state.push(action.payload)
-    },
-    remove_recipe: (state) => {
-      
     }
   },
 })
 
-export const { add_recipe, remove_recipe } = RecipesSlice.actions
+export const { add_recipe } = RecipesSlice.actions
 
 export default RecipesSlice.reducer

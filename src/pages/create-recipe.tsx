@@ -15,6 +15,7 @@ const CreateRecipe = (props) => {
     const [ingredients, setIngredients] = useState([])
     const [method, setMethod] = useState([])
     const [imageUrl, setImageUrl] = useState("")
+    const [url, setUrl] = useState("")
     const [loading, setLoading] = useState(true)
     const dispatch = useDispatch()
 
@@ -74,6 +75,7 @@ const CreateRecipe = (props) => {
                 setMethod(instructions)
                 setImageUrl(image)
                 setLoading(false)
+                setUrl(url)
             }
             else {
                 navigate(`/recipe-not-found`)
@@ -88,7 +90,8 @@ const CreateRecipe = (props) => {
             imgURL: imageUrl,
             summary: summary,
             ingredients: ingredients,
-            method: method
+            method: method,
+            url: url
         }))
         navigate("/")
     }
