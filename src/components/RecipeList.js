@@ -11,8 +11,8 @@ const RecipeList = (recipes) => {
     })
   }
 
-  const items = recipes.map((recipe) => (
-    <li key={recipe.title} className={style.item} onClick={()=>handleRecipeClicked(recipe)} >
+  const items = recipes.map((recipe, idx) => (
+    <li key={idx} className={style.item} onClick={()=>handleRecipeClicked(recipe)} >
       <div className={style.container}>
         <p className={style.heading}>{recipe.title}</p>
         <p className={style.subheading}>{recipe.summary}</p>
