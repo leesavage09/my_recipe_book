@@ -5,7 +5,7 @@ const Img = ({ src, className, alt }) => {
     if (src) {
         return <img src={src} className={className} alt={alt} />
     }
-    else {
+    else {//TODO fix recipe sizes
         return <StaticImage src="../images/defaultRecipe.png" width={73} height={80} layout="fixed" className={className} alt="Recipe Icon" />
     }
 }

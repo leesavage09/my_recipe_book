@@ -19,7 +19,7 @@ const RecipesSlice = createSlice({
       state.push(action.payload)
     },
     remove_recipe: (state) => {
-      //TODO
+      
     }
   },
 })

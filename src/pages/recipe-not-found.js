@@ -2,7 +2,7 @@ import { navigate } from "gatsby-link"
 import * as React from "react"
 import Layout from "../components/layout"
 
-const IndexPage = () => (
+const IndexPage = () => (//TODO make links
     <Layout title="Recipe Not Found" show_back_btn={true} back_btn_action={() => navigate(-2)}>
         <p>The URL you entered could not be imported, Unfortunately not all cooking websites are currently supported.</p>
         <p>The following are supported recipe websites</p>

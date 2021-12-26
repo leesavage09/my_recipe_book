@@ -43,7 +43,7 @@ const CreateRecipe = (props) => {
 
         //https://my-recipe-book-server.herokuapp.com/graphql
         //http://localhost:3001/graphql
-        const response = await fetch("https://my-recipe-book-server.herokuapp.com/graphql", {
+        const response = await fetch("https://my-recipe-book-server.herokuapp.com/graphql", {//TODO use local server in dev mode
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

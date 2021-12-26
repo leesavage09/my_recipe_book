@@ -6,7 +6,7 @@ import { faArrowLeft, faCheck } from '@fortawesome/free-solid-svg-icons'
 
 const Head = ({ show_back_btn, back_btn_action, save_btn_action, title }) => {
 
-    const goBackAction = back_btn_action ? back_btn_action : () => navigate(-1)
+    const goBackAction = back_btn_action ? back_btn_action : () => navigate(-1)//TODO there was a better way with the replace history on navigate option
 
     const GoBackBtn = show_back_btn ? <button className={back_btn} onClick={goBackAction}>
         <FontAwesomeIcon icon={faArrowLeft} />

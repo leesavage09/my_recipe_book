@@ -4,7 +4,7 @@ import { fab_button, cta_button, fa_icon, fa_icon_with_text, style_primary, styl
 import { navigate } from "gatsby"
 
 export const Button = ({ primaryCTA, icon, children, to, className, onClick, disabled }) => {
-
+//TOD there should be a few buttons
     const handelOnClick = () => {
         if (to) {
             navigate(to)
