@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { gql } from "@apollo/client";
 
 interface Recipe {
   title: string,
@@ -9,7 +10,7 @@ interface Recipe {
   url: string
 }
 
-const getLocalStorage = ():Array<Recipe> => {
+const getLocalStorage = (): Array<Recipe> => {
   if (typeof window !== 'undefined') {
     const localStore = localStorage.getItem('recipes')
     return localStore ? JSON.parse(localStore) : []
@@ -31,5 +32,25 @@ const RecipesSlice = createSlice({
 })
 
 export const { add_recipe } = RecipesSlice.actions
+
+export const GetRecipe = gql`
+query GetRecipe($url: String!) {
+    recipe(url: $url) {
+        image
+        ingredients
+        instructions
+        name
+        servings
+        tags
+        time {
+            active
+            cook
+            inactive
+            prep
+            ready
+            total
+        }
+    }
+}`;
 
 export default RecipesSlice.reducer

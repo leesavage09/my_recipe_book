@@ -7,82 +7,18 @@ import style from "./scss/create-recipe.module.scss";
 import qs from 'qs'
 import { navigate } from 'gatsby-link'
 import { useDispatch } from 'react-redux'
-import { add_recipe } from '../slice/recipesSlice'
+import { add_recipe, GetRecipe } from '../slice/recipesSlice'
+import { useLazyQuery } from "@apollo/client";
 
 const CreateRecipe = (props) => {
+    const dispatch = useDispatch()
+    const [RunGetRecipeQuery, result] = useLazyQuery(GetRecipe)
     const [title, setTitle] = useState("")
     const [summary, setSummary] = useState("")
     const [ingredients, setIngredients] = useState([])
     const [method, setMethod] = useState([])
     const [imageUrl, setImageUrl] = useState("")
     const [url, setUrl] = useState("")
-    const [loading, setLoading] = useState(true)
-    const dispatch = useDispatch()
-
-    const getRecipe = async (url) => {
-        if (!url) {
-            return null
-        }
-        const apiQuery = `query {
-            recipe(url:"${url}") {
-              image
-              ingredients
-              instructions
-              name
-              servings
-              tags
-              time {
-                active
-                cook
-                inactive
-                prep
-                ready
-                total
-              }
-            }
-        }`
-
-        //https://my-recipe-book-server.herokuapp.com/graphql
-        //http://localhost:3001/graphql
-        const response = await fetch("http://localhost:3001/graphql", {//TODO use local server in dev mode
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                query: apiQuery
-            }),
-        })
-
-        const data = await response.json()
-        return data.data.recipe
-    }
-
-    useEffect(() => {
-        const url = qs.parse(props.location.search, { ignoreQueryPrefix: true }).q;
-        if (!url) {
-            setLoading(false)
-            return
-        }
-
-        (async () => {
-            const recipe = await getRecipe(url)
-            if (recipe) {
-                const { name, time, servings, ingredients, instructions, image } = recipe
-                setTitle(name)
-                setSummary("Preparation Time: " + time.prep + "\r\nCooking Time: " + time.cook + "\r\n" + servings)
-                setIngredients(ingredients)
-                setMethod(instructions)
-                setImageUrl(image)
-                setLoading(false)
-                setUrl(url)
-            }
-            else {
-                navigate(`/recipe-not-found`)
-            }
-        })();
-
-    }, []);
 
     const handleSave = () => {
         dispatch(add_recipe({
@@ -96,9 +32,30 @@ const CreateRecipe = (props) => {
         navigate("/")
     }
 
-    const imageElement = imageUrl ? <img className={style.image} src={imageUrl} alt={title} /> : null
+    useEffect(() => {
+        const url = qs.parse(props.location.search, { ignoreQueryPrefix: true }).q;
+        if (url) {
+            RunGetRecipeQuery({
+                variables: { url }
+            })
+            setUrl(url)
+        }
+    }, []);
 
-    if (loading) {
+    useEffect(() => {
+        if (!result.data) return
+        setTitle(result.data.recipe.name)
+        setSummary("Preparation Time: " + result.data.recipe.time.prep + "\r\nCooking Time: " + result.data.recipe.time.cook + "\r\n" + result.data.recipe.servings)
+        setIngredients(result.data.recipe.ingredients)
+        setMethod(result.data.recipe.instructions)
+        setImageUrl(result.data.recipe.image)
+    }, [result.data]);
+
+    useEffect(() => {
+        if (result.error) navigate(`/recipe-not-found`)
+    }, [result.error]);
+
+    if (!result || result.loading) {
         return (
             <div className={style.loading}><p>Loading...</p></div>
         )
@@ -113,7 +70,7 @@ const CreateRecipe = (props) => {
                         />
                     </label>
 
-                    {imageElement}
+                    {imageUrl ? <img className={style.image} src={imageUrl} alt={title} /> : null}
 
                     <label className={style.flex_column}>Summary
                         <Input rows="4" type="textarea" placeholder="Summary"
@@ -138,7 +95,6 @@ const CreateRecipe = (props) => {
             </Layout>
         )
     }
-
 }
 
 export default CreateRecipe
