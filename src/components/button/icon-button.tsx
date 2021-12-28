@@ -1,26 +1,30 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import style from './scss/button.module.scss'
 
-interface ButtonInterface {
+interface IconButtonInterface {
     primaryCTA?: boolean,
+    icon: any,
     className?: string,
     onClick: React.MouseEventHandler<HTMLButtonElement>,
     disabled?: boolean,
     children: string
 }
 
-const Button = ({ primaryCTA, children, className, onClick, disabled }: ButtonInterface) => {
+const IconButton = ({ primaryCTA, icon, className, onClick, disabled, children }: IconButtonInterface): JSX.Element => {
 
     const ctaStyle = primaryCTA ? style.primary : style.secondary
 
     return (
-        <button disabled={disabled}
+        <button
+            disabled={disabled}
             onClick={onClick}
             className={`${style.cta_button} ${className} ${ctaStyle}`}
         >
+            <FontAwesomeIcon className={style.fa_icon_with_text} icon={icon} />
             {children}
         </button>
     )
 }
 
-export default Button
+export default IconButton

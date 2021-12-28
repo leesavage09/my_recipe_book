@@ -3,7 +3,7 @@ import Input from '../components/inputs/input'
 import Layout from '../components/layout'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import style from './scss/add-recipe.module.scss'
-import { Button } from '../components/button/button'
+import Button from '../components/button/button'
 import { navigate } from 'gatsby-link'
 
 
@@ -29,7 +29,7 @@ const AddRecipe = () => {
                 <p>Enter a website URL for a recipe you would like to import</p>
             </div>
             <Button
-                to="/new-recipe"
+                onClick={()=>{navigate("/new-recipe")}}
                 className={style.add_own_recipe_button}
                 icon={faPlus}
             >

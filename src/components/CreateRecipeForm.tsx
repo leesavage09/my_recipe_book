@@ -3,7 +3,7 @@ import Input from './inputs/input'
 import TextArea from './inputs/text-area'
 import Layout from './layout'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
-import { Button } from './button/button'
+import IconButton from './button/icon-button'
 import style from "./scss/create-recipe-form.module.scss";
 import { navigate } from 'gatsby-link'
 import { useDispatch } from 'react-redux'
@@ -68,14 +68,14 @@ const CreateRecipeForm = ({ recipe }: { recipe: RecipeType }) => {
                     />
                 </label>
 
-                <Button
+                <IconButton
                     primaryCTA={true}
                     icon={faCheck}
                     onClick={handleSave}
                     className={style.button}
                 >
                     Save
-                </Button>
+                </IconButton>
             </div>
         </Layout>
     )
