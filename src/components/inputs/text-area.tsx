@@ -2,15 +2,18 @@ import React from 'react'
 import { ChangeEventHandler } from 'react'
 import style from './scss/input.module.scss'
 
-interface InputTypes {
+interface Textarea {
+    rows: number,
     placeholder?: string,
-    className?: String,
-    onChange?: ChangeEventHandler<HTMLInputElement>,
+    className?: string,
+    onChange?: ChangeEventHandler<HTMLTextAreaElement>,
     value?: string
 }
-const Input = (props: InputTypes): JSX.Element => {
+
+const TextArea = (props: Textarea): JSX.Element => {
     return (
-        <input
+        <textarea
+            rows={props.rows}
             placeholder={props.placeholder}
             className={`${style.text_input} ${props.className}`}
             onChange={props.onChange}
@@ -19,4 +22,4 @@ const Input = (props: InputTypes): JSX.Element => {
     )
 }
 
-export default Input
+export default TextArea

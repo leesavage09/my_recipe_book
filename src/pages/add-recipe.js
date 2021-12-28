@@ -20,7 +20,10 @@ const AddRecipe = () => {
             <div className={style.container}>
                 <h2>Import recipe from URL</h2>
                 <div className={style.input_container}>
-                    <Input placeholder="Enter URL" onChange={e => setUrl(e.target.value)} />
+                    <Input
+                        placeholder="Enter URL"
+                        onChange={e => setUrl(e.target.value)}
+                    />
                     <Button disabled={!url} primaryCTA={true} onClick={handleImport}>Import</Button>
                 </div>
                 <p>Enter a website URL for a recipe you would like to import</p>
