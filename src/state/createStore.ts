@@ -6,6 +6,6 @@ const reducer = combineReducers({
   recipes: recipeReducer
 })
 
-const createStore =  () => reduxCreateStore(reducer, devToolsEnhancer());
+const createStore =  () => reduxCreateStore(reducer, devToolsEnhancer({}));
 
 export default createStore
