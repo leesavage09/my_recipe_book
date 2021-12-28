@@ -2,7 +2,7 @@ import React from 'react'
 import style from "./scss/import-recipe.module.scss";
 import qs from 'qs'
 import { PageProps } from "gatsby"
-import { navigate } from 'gatsby-link'
+import RecipeNotFound from '../components/recipe-not-found'
 import { GetRecipe, RecipeType } from '../slice/recipesSlice'
 import { useQuery } from "@apollo/client"
 import CreateRecipeForm from "../components/CreateRecipeForm"
@@ -20,9 +20,8 @@ const ImportRecipe = (props:PageProps) => {
         )
     }
     else if (result.error) {
-        navigate(`/recipe-not-found`)
         return (
-            <div />
+            <RecipeNotFound />
         )
     }
     else {

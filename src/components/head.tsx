@@ -4,18 +4,24 @@ import { navigate } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faCheck } from '@fortawesome/free-solid-svg-icons'
 
-const Head = ({ show_back_btn, back_btn_action, save_btn_action, title } : {show_back_btn?:Boolean, back_btn_action?:Function, save_btn_action?:Function, title:String}) => {
+interface HeadInterface {
+    show_back_btn?: boolean,
+    save_btn_action?: React.MouseEventHandler<HTMLButtonElement> ,
+    title: string
+}
 
-    const goBackAction = back_btn_action ? back_btn_action : () => navigate(-1)//TODO there was a better way with the replace history on navigate option
+const Head = ({ show_back_btn, save_btn_action, title }: HeadInterface) => {
 
-    const GoBackBtn = show_back_btn ? <button className={style.back_btn} onClick={()=>goBackAction()}>
-        <FontAwesomeIcon icon={faArrowLeft} />
-    </button> : null
+    const GoBackBtn = show_back_btn ?
+        <button className={style.back_btn} onClick={() => navigate(-1)}>
+            <FontAwesomeIcon icon={faArrowLeft} />
+        </button> : null
 
 
-    const SaveBtn = save_btn_action ? <button className={style.save_btn} onClick={() => save_btn_action()}>
-        <FontAwesomeIcon icon={faCheck} />
-    </button> : null
+    const SaveBtn = save_btn_action ?
+        <button className={style.save_btn} onClick={save_btn_action}>
+            <FontAwesomeIcon icon={faCheck} />
+        </button> : null
 
     return (
         <div className={style.page_head}>
