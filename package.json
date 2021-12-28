@@ -20,6 +20,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@reduxjs/toolkit": "^1.6.2",
+    "@types/react": "^17.0.38",
     "gatsby": "^4.2.0",
     "gatsby-plugin-image": "^2.2.0",
     "gatsby-plugin-sass": "^5.2.0",
@@ -34,5 +35,8 @@
     "react-redux": "^7.2.6",
     "redux-devtools-extension": "^2.13.9",
     "sass": "^1.43.5"
+  },
+  "devDependencies": {
+    "@types/qs": "^6.9.7"
   }
 }

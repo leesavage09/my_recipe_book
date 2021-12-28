@@ -6,11 +6,11 @@ const NewRecipe = () => {
     
     const recipe: RecipeType = {
         title: "",
-        imgURL: null,
+        imgURL: "",
         summary: "",
         ingredients: [],
         method: [],
-        url: null
+        url: ""
     }
 
     return (

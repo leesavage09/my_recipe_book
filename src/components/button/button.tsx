@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import style from './scss/button.module.scss'
 import { navigate } from "gatsby"
 
-export const Button = ({ primaryCTA, icon, children, to, className, onClick, disabled }) => {
+export const Button = ({ primaryCTA, icon, children, to, className, onClick, disabled }:{ primaryCTA:Boolean, icon:any, children:any, to?:string, className?:String, onClick:Function, disabled?:boolean }) => {
 //TOD there should be a few buttons
     const handelOnClick = () => {
         if (to) {

@@ -4,11 +4,11 @@ import { navigate } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faCheck } from '@fortawesome/free-solid-svg-icons'
 
-const Head = ({ show_back_btn, back_btn_action, save_btn_action, title }) => {
+const Head = ({ show_back_btn, back_btn_action, save_btn_action, title } : {show_back_btn:Boolean, back_btn_action?:Function, save_btn_action:Function, title:String}) => {
 
     const goBackAction = back_btn_action ? back_btn_action : () => navigate(-1)//TODO there was a better way with the replace history on navigate option
 
-    const GoBackBtn = show_back_btn ? <button className={style.back_btn} onClick={goBackAction}>
+    const GoBackBtn = show_back_btn ? <button className={style.back_btn} onClick={()=>goBackAction()}>
         <FontAwesomeIcon icon={faArrowLeft} />
     </button> : null
 

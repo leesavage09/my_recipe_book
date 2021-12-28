@@ -1,14 +1,15 @@
 import React from 'react'
 import style from "./scss/import-recipe.module.scss";
 import qs from 'qs'
+import { PageProps } from "gatsby"
 import { navigate } from 'gatsby-link'
 import { GetRecipe, RecipeType } from '../slice/recipesSlice'
 import { useQuery } from "@apollo/client"
 import CreateRecipeForm from "../components/CreateRecipeForm"
 
-const ImportRecipe = ({ location: { search } }) => {
+const ImportRecipe = (props:PageProps) => {
 
-    const url = qs.parse(search, { ignoreQueryPrefix: true }).q;
+    const url = qs.parse(props.location.search, { ignoreQueryPrefix: true }).q;
     const result = useQuery(GetRecipe, {
         variables: { url }
     })
@@ -31,7 +32,7 @@ const ImportRecipe = ({ location: { search } }) => {
             summary: "Preparation Time: " + result.data.recipe.time.prep + "\r\nCooking Time: " + result.data.recipe.time.cook + "\r\n" + result.data.recipe.servings,
             ingredients: result.data.recipe.ingredients,
             method: result.data.recipe.instructions,
-            url: url
+            url: url ? url.toString() : ""
         }
         return (
             <CreateRecipeForm recipe={recipe} />
