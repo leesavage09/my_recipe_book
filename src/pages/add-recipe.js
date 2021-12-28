@@ -12,7 +12,7 @@ const AddRecipe = () => {
 
     const handleImport = async () => {
         const encodedURL = encodeURIComponent(url)
-        navigate(`/create-recipe?q=${encodedURL}`)
+        navigate(`/import-recipe?q=${encodedURL}`)
     }
 
     return (
@@ -26,7 +26,7 @@ const AddRecipe = () => {
                 <p>Enter a website URL for a recipe you would like to import</p>
             </div>
             <Button
-                to="/create-recipe"
+                to="/new-recipe"
                 className={style.add_own_recipe_button}
                 icon={faPlus}
             >
